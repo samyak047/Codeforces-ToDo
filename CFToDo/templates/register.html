@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+		{{form}}
+	<button type="submit" class="main-btn">Submit</button>
+	</form>
+	{% endblock %}
+
+</body>
+</html>

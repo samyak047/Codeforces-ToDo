@@ -1,0 +1,34 @@
+{% extends "base_generic.html" %}
+
+
+<html>
+    <head>
+    	{% block title %}
+    	<title>{{user.username}} | Codeforces ToDo</title>
+    	{% endblock %}
+    </head>
+
+    <body>
+    	{% block nav %}
+    	<li><a class="black-text" href="http://127.0.0.1:8000/accounts/logout">Logout</a></li>
+    	{% endblock %}
+
+    	{% block content %}
+    	{% load static %}
+    	<h3 class="white-text"> {{user.username}}'s  ToDo </h3>
+    	{% if problemList %}
+    		<ul class="list">
+
+    			{% for problem in problemList %}
+    			<li><a style="font-size:20px; padding:20px;" href="https://codeforces.com/problemset/problem/{{ problem.contestId }}/{{ problem.index}}" target="_blank"> {{ problem.problemId }}   {{ problem.problemName}}</a></li>
+    			{% endfor %}
+    		</ul>
+    	{% endif %}
+    	<br>
+    	<br>
+    	<p>Please reload page after solving any problem</p>
+    	<button class="main-btn" onClick="location.href=location.href">Refresh</button>
+    	{% endblock %}
+
+    </body>
+</html>
